@@ -20,26 +20,27 @@ public class clientTCP {
     public static void main(String args[]) throws IOException{
         Scanner user = new Scanner(System.in);
 
-        System.out.println("Would you like to play Hangman? Y/N?");
-        String play = user.next();
-
-        Socket clientSocket = new Socket("127.0.0.1",1024);
+        Socket clientSocket = new Socket("127.0.0.1",1342);
         PrintStream sendToServer = new PrintStream(clientSocket.getOutputStream());
 
         Scanner fromServer = new Scanner(clientSocket.getInputStream());
 
-        if(play.toLowerCase().equals('y')){
+
+        System.out.println("Would you like to play Hangman? Y/N?");
+        String play = user.next();
+
+        if(play.toLowerCase().equals("y")){
             boolean playing = true;
             sendToServer.print("PLAY");
             String word;
-
-            while(playing) {
+            System.out.println("Playing from client");
+          //  while(playing) {
                 word = fromServer.next();
+                System.out.print(word);
 
+           // }
 
-            }
-
-        } else if(play.toLowerCase().equals('n')) {
+        } else if(play.toLowerCase().equals("n")) {
             System.out.println("Okay... Bye!");
         } else {
             System.out.println("LOL you funny... Bye!");
