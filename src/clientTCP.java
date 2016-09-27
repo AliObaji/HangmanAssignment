@@ -20,7 +20,7 @@ public class clientTCP {
     public static void main(String args[]) throws IOException{
         Scanner user = new Scanner(System.in);
 
-        Socket clientSocket = new Socket("127.0.0.1",1342);
+        Socket clientSocket = new Socket("127.0.0.1",1234);
         PrintStream sendToServer = new PrintStream(clientSocket.getOutputStream());
 
         Scanner fromServer = new Scanner(clientSocket.getInputStream());
@@ -41,8 +41,10 @@ public class clientTCP {
            // }
 
         } else if(play.toLowerCase().equals("n")) {
+            sendToServer.print("STOP");
             System.out.println("Okay... Bye!");
         } else {
+            sendToServer.print("STOP");
             System.out.println("LOL you funny... Bye!");
         }
     }

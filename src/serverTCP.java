@@ -19,7 +19,7 @@ public class serverTCP {
         String clientInput;
         String word;
 
-        ServerSocket serverSocket = new ServerSocket(1342);
+        ServerSocket serverSocket = new ServerSocket(1234);
 
         Socket connectionSocket = serverSocket.accept();
 
